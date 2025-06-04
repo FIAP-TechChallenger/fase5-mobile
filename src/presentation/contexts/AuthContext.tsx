@@ -17,10 +17,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const user = await AuthService.login(email, password);
-      if (user) {
+      const userId = await AuthService.login(email, password);
+      if (userId) {
         setIsAuthenticated(true);
-        setUserId(user.uid);
+        setUserId(userId);
         return true;
       }
       return false;

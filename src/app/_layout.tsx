@@ -32,10 +32,6 @@ export default function RootLayout() {
       <AuthProvider>
         <Stack>
           <Stack.Screen name="(auth)/login" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="(auth)/cadastro-usuario"
-            options={{ headerShown: false }}
-          />
           <Stack.Screen name="(protected)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>

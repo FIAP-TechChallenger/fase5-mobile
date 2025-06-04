@@ -11,6 +11,7 @@ import Button from "@/presentation/components/ui/Button";
 import { AuthService } from "@/application/services/AuthService";
 import { ShowToast } from "@/presentation/components/ui/Toast";
 import { Loading } from "@/presentation/components/ui/Loading";
+import { UsuarioService } from "@/application/services/UsuarioService";
 
 export default function Cadastro() {
   const [values, setValues] = useState<CadastroUsuarioForm>(
@@ -42,13 +43,13 @@ export default function Cadastro() {
 
   const cadastrar = async (email: string, password: string) => {
     try {
-      await AuthService.createUser(email, password);
+      await UsuarioService.cadastrar(email, password);
       ShowToast(
         "success",
         "Conta cadastrada com sucesso.",
         "Efetue o login para acessar a conta."
       );
-    //   router.replace("/login");
+      //   router.replace("/login");
     } catch (error) {
       if (error instanceof Error) {
         ShowToast("error", error.message || "Erro ao cadastrar a conta.");

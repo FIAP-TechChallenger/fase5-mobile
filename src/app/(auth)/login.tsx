@@ -1,5 +1,5 @@
 import { View, Text, Image } from "react-native";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import { useState } from "react";
 import { useAuth } from "@/presentation/contexts/AuthContext";
 import Button from "@/presentation/components/ui/Button";
@@ -32,7 +32,7 @@ export default function Login() {
           if (isAuthenticated) {
             router.replace("/(protected)/Home");
           } else {
-            ShowToast("error", "O usuário informado está incorreto.");
+            ShowToast("error", "Credenciais incorretas.");
           }
         } catch (error) {
           if (error instanceof Error) {
@@ -82,10 +82,6 @@ export default function Login() {
       </View>
 
       <Button color="orange" text="Acessar" onPress={onConfirm} />
-
-      <Link href="/cadastro-usuario" className="mt-4 text-fiap-gray">
-        Não possui uma conta? Crie clicando aqui
-      </Link>
     </View>
   );
 }
